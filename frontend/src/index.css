@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-@theme {
+:root {
   --color-charcoal: #08110D;
   --color-offwhite: #F9FAED;
   --color-gold: #D4AF37;
