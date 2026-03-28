@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
 
 @theme {
   --color-charcoal: #08110D;
@@ -24,4 +23,56 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.8; }
   }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-charcoal);
+    color: var(--color-offwhite);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: color-mix(in srgb, var(--color-charcoal) 60%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in srgb, white 10%, transparent);
+  }
+
+  .glass-light {
+    background-color: color-mix(in srgb, white 5%, transparent);
+    backdrop-filter: blur(4px);
+    border: 1px solid color-mix(in srgb, white 5%, transparent);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-charcoal);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+.noise-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/noise.svg');
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 10;
 }
